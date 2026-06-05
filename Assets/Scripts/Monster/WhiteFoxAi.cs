@@ -69,11 +69,11 @@ public class WhiteFoxAi : MonoBehaviour
 
             if (FoxAnimation.GetCurrentAnimatorStateInfo(0).IsName("FoxIdle"))
             {
-                rigid.velocity = new Vector2(speed * moveDirection, rigid.velocity.y - 1);
+                rigid.linearVelocity = new Vector2(speed * moveDirection, rigid.linearVelocity.y - 1);
             }
             else
             {
-                rigid.velocity = new Vector2(0, rigid.velocity.y);
+                rigid.linearVelocity = new Vector2(0, rigid.linearVelocity.y);
             }
 
             //아래로 나가는 광선에 닿는게 없으면(=낭떠러지면) 정지
@@ -106,7 +106,7 @@ public class WhiteFoxAi : MonoBehaviour
         {
             StartCoroutine("Blink");
             yarnLife--;
-            rigid.velocity = new Vector2(0, rigid.velocity.y);
+            rigid.linearVelocity = new Vector2(0, rigid.linearVelocity.y);
             FoxAnimation.SetTrigger("YarnHit");
         } 
         
@@ -118,7 +118,7 @@ public class WhiteFoxAi : MonoBehaviour
                 StartCoroutine("Blink");
                 life--;
                 FoxAnimation.SetTrigger("Hit");
-                rigid.velocity = new Vector2(0, rigid.velocity.y);
+                rigid.linearVelocity = new Vector2(0, rigid.linearVelocity.y);
             }
         }
 

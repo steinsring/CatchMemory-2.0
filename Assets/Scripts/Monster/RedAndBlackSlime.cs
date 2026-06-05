@@ -49,11 +49,11 @@ public class RedAndBlackSlime : MonoBehaviour
             //데미지받으면 경직
             if (SlimeAnimation.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
             {
-                rigid.velocity = new Vector2(0, rigid.velocity.y);
+                rigid.linearVelocity = new Vector2(0, rigid.linearVelocity.y);
             }
             else
             {
-                rigid.velocity = new Vector2(speed * moveDirection, rigid.velocity.y - 1);
+                rigid.linearVelocity = new Vector2(speed * moveDirection, rigid.linearVelocity.y - 1);
             }
 
 

@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Reconfirm : UI_Popup //ÀúÀåµÇ¾ú½À´Ï´Ù È®ÀÎ
+public class Reconfirm : UI_Popup //ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ È®ï¿½ï¿½
 {
     enum Buttons
     {
@@ -29,7 +29,7 @@ public class Reconfirm : UI_Popup //ÀúÀåµÇ¾ú½À´Ï´Ù È®ÀÎ
         Bind<Button>(typeof(Buttons));
         Bind<Text>(typeof(Texts));
 
-        Get<Text>((int)Texts.checkText).text = "ÀúÀåµÇ¾ú½À´Ï´Ù";
+        Get<Text>((int)Texts.checkText).text = "ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤";
         Get<Button>((int)Buttons.close).gameObject.EventBind(ClosePopup);
         Get<Button>((int)Buttons.yes).gameObject.EventBind(CloseAllPopup);
     }
@@ -40,7 +40,7 @@ public class Reconfirm : UI_Popup //ÀúÀåµÇ¾ú½À´Ï´Ù È®ÀÎ
     public void CloseAllPopup(PointerEventData eventData)
     {
         GameMNG.UI.CloseAllPopupUI();
-        //ÇöÀç DataÀúÀå
+        //ï¿½ï¿½ï¿½ï¿½ Dataï¿½ï¿½ï¿½ï¿½
     }
 }
 public class ConfirmEndStage : UI_Popup
@@ -66,7 +66,7 @@ public class ConfirmEndStage : UI_Popup
         Bind<Button>(typeof(Buttons));
         Bind<Text>(typeof(Texts));
 
-        Get<Text>((int)Texts.checkText).text = "½ºÅ×ÀÌÁö¸¦ ¸¶Ä¡½Ã°Ú½À´Ï±î?";
+        Get<Text>((int)Texts.checkText).text = "ìŠ¤í…Œì´ì§€ë¥¼ ë§ˆì¹˜ì‹œê² ìŠµë‹ˆê¹Œ?";
         Get<Button>((int)Buttons.close).gameObject.EventBind(ClosePopup);
         Get<Button>((int)Buttons.no).gameObject.EventBind(ClosePopup);
         Get<Button>((int)Buttons.yes).gameObject.EventBind(LoadSelectScene);
@@ -109,7 +109,7 @@ public class ConfirmNewStart : UI_Popup
         Bind<Button>(typeof(Buttons));
         Bind<Text>(typeof(Texts));
 
-        Get<Text>((int)Texts.checkText).text = "ÇØ´ç ½ºÅ×ÀÌÁö Ã³À½À¸·Î µ¹¾Æ°¡½Ã°Ú½À´Ï±î?";
+        Get<Text>((int)Texts.checkText).text = "í•´ë‹¹ ìŠ¤í…Œì´ì§€ ì²˜ìŒìœ¼ë¡œ ëŒì•„ê°€ì‹œê² ìŠµë‹ˆê¹Œ?";
         Get<Button>((int)Buttons.close).gameObject.EventBind(ClosePopup);
         Get<Button>((int)Buttons.no).gameObject.EventBind(ClosePopup);
         Get<Button>((int)Buttons.yes).gameObject.EventBind(StartNewGame);

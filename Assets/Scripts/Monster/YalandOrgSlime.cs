@@ -28,7 +28,7 @@ public class YalandOrgSlime : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Ä³¸¯ÅÍ¿Í ¸ó½ºÅÍ »çÀÌ °Å¸®°è»ê, È°µ¿ÇÒÁö °áÁ¤
+        //Ä³ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ï¿½, È°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (player == null)
         {
             player = GameObject.FindWithTag("Player");
@@ -42,14 +42,14 @@ public class YalandOrgSlime : MonoBehaviour
 
         if (isActive)
         {
-            //µ¥¹ÌÁö¹ÞÀ¸¸é °æÁ÷
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (SlimeAnimation.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
             {
-                rigid.velocity = new Vector2(0, rigid.velocity.y);
+                rigid.linearVelocity = new Vector2(0, rigid.linearVelocity.y);
             }
-            else//¹ÞÁö¾ÊÀ¸¸é °è¼Ó ¿ÞÂÊÀ¸·Î °¨
+            else//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
             {
-                rigid.velocity = new Vector2(speed * -1, rigid.velocity.y - 1);
+                rigid.linearVelocity = new Vector2(speed * -1, rigid.linearVelocity.y - 1);
             }
         }
     }

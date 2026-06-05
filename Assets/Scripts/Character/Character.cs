@@ -61,11 +61,11 @@ public class Character : MonoBehaviour
     {
         hit = Physics2D.Raycast(player.transform.position, Vector2.down, 2.0f, ~LayerMask.GetMask("Character", "Bound", "UI"));
 
-        if (hit.collider != null && hit.distance <= 1.8f && player.GetComponent<Rigidbody2D>().velocity.y < 0) //가운데 ray가 땅에 닿기 전
+        if (hit.collider != null && hit.distance <= 1.8f && player.GetComponent<Rigidbody2D>().linearVelocity.y < 0) //가운데 ray가 땅에 닿기 전
         {
             player.GetComponent<Animator>().SetBool("OnGround", true);
         }
-        if (hit.collider != null && hit.distance <= 0.9f && player.GetComponent<Rigidbody2D>().velocity.y <= 0)
+        if (hit.collider != null && hit.distance <= 0.9f && player.GetComponent<Rigidbody2D>().linearVelocity.y <= 0)
         {
             player.OnGround = true;
             newSpawnPoint.position = player.transform.position;
@@ -275,7 +275,7 @@ public class Character : MonoBehaviour
             playerUI.isJumpTriggerd = false;
             player.GetComponent<Animator>().SetTrigger("IsJumping");
             player.GetComponent<Animator>().SetBool("OnGround", false);
-            player.GetComponent<Rigidbody2D>().velocity = new Vector2(_moveSpeed, _jumpPower);
+            player.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(_moveSpeed, _jumpPower);
             player.OnGround = false;
             _jumpCount--;
         }
@@ -304,10 +304,10 @@ public class Character : MonoBehaviour
             if ((playerUI.isJumpTriggerd || Input.GetKeyDown(KeyCode.Space)) && _jumpCount > 0)
             {
                 GameMNG.Sound.Play("Effect/09_Jump_4");
-                player.currentSpeed = player.GetComponent<Rigidbody2D>().velocity.x;
+                player.currentSpeed = player.GetComponent<Rigidbody2D>().linearVelocity.x;
                 playerUI.isJumpTriggerd = false;
                 player.GetComponent<Animator>().Play("Jump", 0, 0);
-                player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, _jumpPower);
+                player.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, _jumpPower);
                 _jumpCount--;
             }
             if (_jumpCount == 0)
@@ -520,7 +520,7 @@ public class Character : MonoBehaviour
             GameMNG.Sound.Play("Effect/12_1_AttackMonster_02");
             player.GetComponent<Animator>().CrossFade("JumpKill", 0);
             player.GetComponent<Animator>().SetBool("OnGround", false);
-            player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, _jumpPower);
+            player.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, _jumpPower);
             player.OnGround = false;
         }
         public void Update()
@@ -630,7 +630,7 @@ public class Character : MonoBehaviour
         if (collision.gameObject.tag == "Monster" || collision.gameObject.CompareTag("BlackSlime")) //���Ϳ� �浹
         {
             contactPoint = collision.GetContact(0).point;
-            if (gameObject.GetComponent<Rigidbody2D>().velocity.y < -0.01f && gameObject.transform.position.y > collision.transform.position.y)
+            if (gameObject.GetComponent<Rigidbody2D>().linearVelocity.y < -0.01f && gameObject.transform.position.y > collision.transform.position.y)
             {
                 ChangeState(new MonsterKill(player, playerUI));
             }

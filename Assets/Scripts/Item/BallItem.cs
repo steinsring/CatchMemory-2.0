@@ -39,7 +39,7 @@ public class BallItem : MonoBehaviour
     {
         if (other.gameObject.tag == "Monster" || other.gameObject.tag == "Hedgehog")
         {
-            Destroy(this.gameObject);           //°í½¿µµÄ¡¿Í Ãæµ¹ÇÏ¸é ÆÄ±«
+            Destroy(this.gameObject);           //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½æµ¹ï¿½Ï¸ï¿½ ï¿½Ä±ï¿½
         }
         else
         {
@@ -49,14 +49,14 @@ public class BallItem : MonoBehaviour
 
     protected void TimeLimit()
     {
-        Destroy(this.gameObject, LimitTime);    //LimitTimeÈÄ¿¡ ÆÄ±«
+        Destroy(this.gameObject, LimitTime);    //LimitTimeï¿½Ä¿ï¿½ ï¿½Ä±ï¿½
     }
 
     protected void playerUse()
     {
         if (isUse)
         {
-            rigid.velocity = new Vector2(speed * MoveDirection, 0);
+            rigid.linearVelocity = new Vector2(speed * MoveDirection, 0);
         }
         TimeLimit();
     }

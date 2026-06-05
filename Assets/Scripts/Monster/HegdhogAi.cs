@@ -27,7 +27,7 @@ public class HegdhogAi : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Ä³¸¯ÅÍ¿Í ¸ó½ºÅÍ »çÀÌ °Å¸®°è»ê, È°µ¿ÇÒÁö °áÁ¤
+        //Ä³ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ï¿½, È°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (player == null)
         {
             player = GameObject.FindWithTag("Player");
@@ -42,17 +42,17 @@ public class HegdhogAi : MonoBehaviour
 
         if (isActive)
         {
-            //µ¥¹ÌÁö¹ÞÀ¸¸é °æÁ÷
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (HegdhogAnimation.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
             {
-                rigid.velocity = new Vector2(0, rigid.velocity.y);
+                rigid.linearVelocity = new Vector2(0, rigid.linearVelocity.y);
             }
             else
             {
-                rigid.velocity = new Vector2(speed * moveDirection, rigid.velocity.y - 1);
+                rigid.linearVelocity = new Vector2(speed * moveDirection, rigid.linearVelocity.y - 1);
             }
 
-            //¾Æ·¡·Î ³ª°¡´Â ±¤¼±¿¡ ´ê´Â°Ô ¾øÀ¸¸é(=³¶¶°·¯Áö¸é) ¹Ý´ë¹æÇâÀ¸·Î ÀÌµ¿
+            //ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½Ý´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
             Vector2 downVector = new Vector2(rigid.position.x + moveDirection * 0.3f, rigid.position.y);
             Debug.DrawRay(downVector, Vector2.down * 2, new Color(0, 1, 0));
             RaycastHit2D rayHitdown = Physics2D.Raycast(downVector, Vector2.down, 2, LayerMask.GetMask("Ground"));
@@ -64,7 +64,7 @@ public class HegdhogAi : MonoBehaviour
             else
                 sprite.flipX = false;
 
-            //º®ÀÌ ÀÖÀ¸¸é ¹Ý´ë·Î ÀÌµ¿
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý´ï¿½ï¿½ ï¿½Ìµï¿½
             Vector2 frontVector = new Vector2(rigid.position.x, rigid.position.y - 0.2f);
             Debug.DrawRay(frontVector, Vector2.right * moveDirection * 0.5f, new Color(1, 0, 0));
             RaycastHit2D rayHitfront = Physics2D.Raycast(frontVector, Vector2.right * moveDirection, 0.5f, LayerMask.GetMask("Ground"));

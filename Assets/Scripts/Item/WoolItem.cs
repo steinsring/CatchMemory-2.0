@@ -78,7 +78,7 @@ public class WoolItem : MonoBehaviour
     protected void playerUse() {
         if (isUse)
         {
-            rigid.velocity = new Vector2(speed * MoveDirection, 0);
+            rigid.linearVelocity = new Vector2(speed * MoveDirection, 0);
         }
         TimeLimit();
 
